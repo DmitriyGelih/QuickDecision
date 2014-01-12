@@ -1,7 +1,39 @@
 <div ng-controller="tabsController" class="content col-md-pull-9">
     <tabset>
-        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
-            {{tab.content}}
+
+    <tab heading="{{tabs[0].title}}" select="getContent(0)"  active="tab.active">
+            <div ng-repeat="item in tabs[0].content">
+                <div class="alert alert-info fade in col-lg-4">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>{{item}}</strong>
+                </div>
+                <button type="button" class="add btn btn-info btn-lg col-md-pull-2">+</button>
+            </div>
+    </tab>
+        <tab heading="{{tabs[1].title}}" select="getContent(1)" >
+            <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
+            <div ng-repeat="item in tabs[1].content" class="row col-md-offset-2">
+                <div class="alert alert-info fade in col-lg-4">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>{{item}}</strong>
+                </div>
+            </div>
         </tab>
+        <tab heading="{{tabs[2].title}}" select="getContent(2)" >
+            <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
+            <div ng-repeat="item in tabs[2].content" class="row col-md-offset-2">
+                <div class="alert alert-info fade in col-lg-4">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>{{item}}</strong>
+                </div>
+            </div>
+        </tab>
+        <tab heading="{{tabs[3].title}}" select="getContent(2)" >
+
+        </tab>
+        <tab heading="{{tabs[4].title}}" select="getContent(2)" >
+
+        </tab>
+
     </tabset>
 </div>

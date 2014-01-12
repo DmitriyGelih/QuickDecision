@@ -1,17 +1,17 @@
+angular.module('plunker', ['ui.bootstrap']);
 var tabsController = function ($scope) {
-    $scope.tabs = [
-        { title:"Проекты", content:"Dynamic content 1" },
-        { title:"Альтернативи", content:"Dynamic content 2" },
-        { title:"Критерии", content:"Dynamic content 2" },
-        { title:"Оценка", content:"Dynamic content 2" },
-        { title:"Результат", content:"Dynamic content 2" }
-    ];
+	var project = "Тахометр",
+		alternative = 'альтернатива 1',
+		alternative2 = 'альтернатива 2',
+		criteria1 = 'критерий 1',
+		criteria2 = 'критерий 2'
 
-    $scope.alertMe = function() {
-        setTimeout(function() {
-            alert("You've selected the alert tab!");
-        });
-    };
-
-    $scope.navType = 'pills';
+	$scope.tabs = [
+		{ title:"Проект", content:[project] , active:true},
+		{  title:"Альтернативи", content:[alternative, alternative2] },
+		{  title:"Критерии", content:[criteria1, criteria2] },
+		{  title:"Оценивать", content:[] },
+		{  title:"Результат", content:[] }
+	];
+//    $scope.navType = 'pills';
 };

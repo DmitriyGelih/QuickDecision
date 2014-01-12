@@ -150,3 +150,9 @@ footer {
 .content .tabbable ul{
     background: #5D584B
 }
+.tabbable .tab-content {
+    margin: 10px;
+}
+.tab-content .tab-pane .add {
+    margin: 4px;
+}
