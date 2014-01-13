@@ -10,30 +10,56 @@
                 <button type="button" class="add btn btn-info btn-lg col-md-pull-2">+</button>
             </div>
     </tab>
-        <tab heading="{{tabs[1].title}}" select="getContent(1)" >
-            <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
-            <div ng-repeat="item in tabs[1].content" class="row col-md-offset-2">
-                <div class="alert alert-info fade in col-lg-4">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <strong>{{item}}</strong>
+    <tab heading="{{tabs[1].title}}" select="getContent(1)" >
+        <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
+        <div ng-repeat="item in tabs[1].content" class="row col-md-offset-2">
+            <div class="alert alert-info fade in col-lg-4">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong class="text">{{item}}</strong>
+            </div>
+        </div>
+    </tab>
+    <tab heading="{{tabs[2].title}}" select="getContent(2)" >
+        <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
+        <div ng-repeat="item in tabs[2].content" class="row col-md-offset-2">
+            <div class="alert alert-info fade in col-lg-4">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong class="text">{{item}}</strong>
+            </div>
+        </div>
+    </tab>
+    <tab heading="{{tabs[3].title}}" select="getContent(2)" >
+        <div style="width: 900px">
+            <div class="criteria-evaluates" style="width: 400px; position: relative; float: left;">
+                <h4 style="color: #7D796F;">Соотношение критериев</h4>
+                <div ng-repeat="item in criteriaEvaluates" style=" margin-bottom: 20px;">
+                    <div class="ng-valid ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ng-dirty" ng-model="item.slider" ng-change="change()" step="1" min="-9" max="9" ui-slider aria-disabled="false">
+                        <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 64%; text-decoration: none;">
+                            <span class="text" style="font-size: 15px; margin-left: 6px; color: #428bca;">{{item.slider == 0 && '' || item.slider > 0 && item.slider || item.slider * -1}}</span>
+                        </a>
+                    </div>
+                    <div class="text" style="text-align: left; width: 200px;display: inline-block">{{ item.leftName }}</div><div class="text" style="text-align: right; width: 200px;display: inline-block">{{ item.rightName }}</div>
                 </div>
             </div>
-        </tab>
-        <tab heading="{{tabs[2].title}}" select="getContent(2)" >
-            <button type="button" class="add btn btn-info btn-lg col-md-pull-2">Добавить</button>
-            <div ng-repeat="item in tabs[2].content" class="row col-md-offset-2">
-                <div class="alert alert-info fade in col-lg-4">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <strong>{{item}}</strong>
+            <div class="alternative-evaluates" style="width: 400px; float:left; position: relative; margin-left: 25px">
+                <h4 style="color: #7D796F;">Инициализация критериев по каждой альтернативе</h4>
+                <div ng-repeat="criteria in alternativeEvaluates">
+                    <div ng-repeat="(key, alternatives) in criteria">
+                        <h5 class="text">{{key}}:</h5>
+                        <div ng-repeat="alternative in alternatives">
+                            <h6 class="text">{{alternative.name}}</h6>
+                            <div class="ng-valid ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all ng-dirty" ng-model="alternative.weight" ng-change="change()" use-decimals step="0.01" min="0.00" max="1.00" ui-slider aria-disabled="false">
+                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 64%;"></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </tab>
-        <tab heading="{{tabs[3].title}}" select="getContent(2)" >
-
-        </tab>
-        <tab heading="{{tabs[4].title}}" select="getContent(2)" >
-
-        </tab>
+        </div>
+    </tab>
+    <tab heading="{{tabs[4].title}}" select="[getContent(2), result()]" >
+        <div id="container" style="min-width: 80%; height: 300px; margin: 50px;"></div>
+    </tab>
 
     </tabset>
 </div>

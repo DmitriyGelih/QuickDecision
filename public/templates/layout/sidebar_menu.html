@@ -1,10 +1,10 @@
 <a class="btn btn-default" href="#" id="menu-toggle"><i class="icon-reorder"></i></a>
 <div id="sidebar-wrapper">
     <div id='new-project' ng-click=''>
-        Create new project +
+        <p style="font-size: 18px">Создать новый проект</p>
     </div>
     <ul class="sidebar-nav">
-        <li ng-repeat="item in items" ng-click="foo(item)">
+        <li class="selected" ng-repeat="item in items" ng-click="foo(item)">
             {{ item.name }}
         </li>
     </ul>

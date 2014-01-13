@@ -156,3 +156,14 @@ footer {
 .tab-content .tab-pane .add {
     margin: 4px;
 }
+
+.text {
+    color: #7D796F;
+    font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+
+.selected {
+    color: #ffffff !important;
+    color: #7D796F;
+    background-color: #626262;
+}
